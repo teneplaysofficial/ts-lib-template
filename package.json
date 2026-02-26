@@ -1,0 +1,77 @@
+{
+  "name": "ts-lib-template",
+  "displayName": "TypeScript Library Template",
+  "version": "0.0.0",
+  "description": "Production-ready TypeScript library template powered by pnpm and tsdown.",
+  "keywords": [
+    "typescript",
+    "tsdown",
+    "library",
+    "template",
+    "pnpm",
+    "cli",
+    "starter",
+    "esm",
+    "cjs"
+  ],
+  "homepage": "https://teneplaysofficial.github.io/ts-lib-template",
+  "repository": "git+https://github.com/teneplaysofficial/ts-lib-template.git",
+  "bugs": "https://github.com/teneplaysofficial/ts-lib-template/issues",
+  "funding": "https://github.com/sponsors/teneplaysofficial",
+  "license": "Apache-2.0",
+  "author": "Sriman",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  },
+  "packageManager": "pnpm@10.30.2",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "bin": {
+    "ts-lib-template": "dist/cli.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.cts",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run test && pnpm run build",
+    "test": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@tenedev/prettier-config": "^1.1.1",
+    "@types/node": "^25.3.0",
+    "@vitest/coverage-v8": "4.0.18",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "tsdown": "^0.20.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "prettier": "@tenedev/prettier-config",
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.{js,ts}": "pnpm run lint:fix"
+  }
+}

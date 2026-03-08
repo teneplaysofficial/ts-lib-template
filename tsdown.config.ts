@@ -1,4 +1,6 @@
+import { banner } from 'echo-banner';
 import { defineConfig } from 'tsdown';
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig([
   /**
@@ -13,14 +15,16 @@ export default defineConfig([
     format: ['esm'],
     dts: false,
     minify: true,
-    clean: true,
     outExtensions() {
       return {
         js: '.js',
       };
     },
     banner: {
-      js: '#!/usr/bin/env node',
+      js: banner({
+        pkg,
+        shebang: '#!/usr/bin/env node',
+      }),
     },
   },
 
@@ -34,5 +38,10 @@ export default defineConfig([
     dts: true,
     minify: true,
     exports: true,
+    banner: {
+      js: banner({
+        pkg,
+      }),
+    },
   },
 ]);

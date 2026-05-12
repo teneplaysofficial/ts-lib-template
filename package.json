@@ -65,13 +65,13 @@
     "@tenedev/prettier-config": "^1.1.1",
     "@tenedev/tsconfig": "^0.0.4",
     "@types/node": "^25.3.0",
-    "@vitest/coverage-v8": "4.0.18",
+    "@vitest/coverage-v8": "4.1.5",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.0",
     "prettier": "^3.8.1",
     "tsdown": "^0.22.0",
     "typescript": "^6.0.0",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.6"
   },
   "prettier": "@tenedev/prettier-config",
   "lint-staged": {
